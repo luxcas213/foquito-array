@@ -6,7 +6,7 @@ public class FoquitoScript : MonoBehaviour
 {
     [SerializeField] GameObject[] colors;
     public int currentLightIndex =-1;
-
+    int max = 1;
     void Start()
     {
         
@@ -20,6 +20,9 @@ public class FoquitoScript : MonoBehaviour
 
     public void ActivateNextLight()
     {
+        if (max > 15)
+            Destroy(gameObject);
+        max++;
         currentLightIndex++;
         if (currentLightIndex >= colors.Length)
         {
